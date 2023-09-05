@@ -7,11 +7,11 @@ require __DIR__ . '/../vendor/autoload.php';
 
 function get_token(): false|string|null
 {
-    return @file_get_contents('./token') ?: null;
+    return @file_get_contents(__DIR__ . '/../storage/token') ?: null;
 }
 function store_token(string $token): void
 {
-    file_put_contents('./token', $token);
+    file_put_contents(__DIR__ . '/../storage/token', $token);
 }
 
 $client = new SharePointClient('<client_id>', '<client_secret>', '<tenant_id>');
